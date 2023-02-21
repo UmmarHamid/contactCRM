@@ -13,7 +13,11 @@ export default function Home({ poets }: any) {
       <main>Hello Next</main>
       {poets &&
         poets.map((poet: any) => {
-          return <h1 key={poet.id}>{poet.name}</h1>;
+          return (
+            <h1 className="text-4xl" key={poet.id}>
+              {poet.name}
+            </h1>
+          );
         })}
     </>
   );
