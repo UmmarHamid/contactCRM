@@ -1,6 +1,7 @@
 import Head from "next/head";
+import { supabase } from "../lib/subabaseClient";
 
-export default function Home() {
+export default function Home({ poets }: any) {
   return (
     <>
       <Head>
@@ -10,6 +11,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>Hello Next</main>
+      {poets &&
+        poets.map((poet: any) => {
+          return <h1 key={poet.id}>{poet.name}</h1>;
+        })}
     </>
   );
+}
+
+export async function getServerSideProps() {
+  let { data } = await supabase.from("poets").select();
+  return {
+    props: {
+      poets: data,
+    },
+  };
 }
