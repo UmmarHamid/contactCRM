@@ -1,5 +1,11 @@
-import Head from "next/head";
-import { supabase } from "../lib/subabaseClient";
+import Button from '@/components/Button/Button';
+import Heading from '@/components/Heading/Heading';
+import Input from '@/components/Input/Input';
+import Link from '@/components/Link/Link';
+import Text from '@/components/Text/Text';
+import TextArea from '@/components/TextArea/TextArea';
+import Head from 'next/head';
+import { supabase } from '../lib/subabaseClient';
 
 export default function Home({ poets }: any) {
   return (
@@ -13,14 +19,31 @@ export default function Home({ poets }: any) {
       <main>Hello Next</main>
       {poets &&
         poets.map((poet: any) => {
-          return <h1 key={poet.id}>{poet.name}</h1>;
+          return (
+            <h1 className="text-4xl" key={poet.id}>
+              {poet.name}
+            </h1>
+          );
         })}
+      <div className="inline-flex flex-col space-y-2">
+        <TextArea variant="default" placeholder="input" name="textarea" />
+        <Input variant="default" placeholder="input" name="input" />
+        <Button variant="primary-rounded" text="Primary" />
+        <Button variant="secondary-rounded" text="Secondary" />
+        <Button variant="tertiary-rounded" text="Tertiary" />
+        <Button variant="tertiary-outline" text="Button" />
+        <Heading variant="x-large" title="Heading" />
+        <Text variant="x-large" title="Text component" />
+        <Link href="www.google.com">
+          <Text title="awdaw" variant="small" />
+        </Link>
+      </div>
     </>
   );
 }
 
 export async function getServerSideProps() {
-  let { data } = await supabase.from("poets").select();
+  let { data } = await supabase.from('poets').select();
   return {
     props: {
       poets: data,
