@@ -6,11 +6,10 @@ function Text({ title, variant, extraClasses }: TextModel) {
   let classes = classNames(
     'font-normal text-deepViolet',
     {
-      'text-xxs leading-xxs': variant == 'x-small',
-      'text-xs leading-xs': variant == 'small',
-      'text-sm leading-sm': variant == 'medium',
-      'text-md leading-md': variant == 'large',
-      'text-lg leading-lg': variant == 'x-large',
+      'text-4xs leading-4xs': variant == 'small',
+      'text-3xs leading-3xs': variant == 'medium',
+      'text-2xs leading-2xs': variant == 'large',
+      'text-xs leading-xs': variant == 'x-large',
     },
     extraClasses,
   );
