@@ -1,4 +1,4 @@
-export type InputTypes = {
+export type InputModel = {
   variant: 'default';
   placeholder?: string;
   name: string;

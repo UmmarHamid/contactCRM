@@ -1,4 +1,5 @@
 import Button from '@/components/Button/Button';
+import Card from '@/components/Card/Card';
 import Heading from '@/components/Heading/Heading';
 import Input from '@/components/Input/Input';
 
@@ -35,6 +36,13 @@ export default function Home({ poets }: any) {
           <Button variant="tertiary-outline" text="Button" />
           <Heading variant="x-large" title="Heading" />
           <Text variant="x-large" title="Text component" />
+          Card
+          <Card
+            variant="poet"
+            title="Samin Nowreen"
+            description="Some noob poet"
+            imageSrc="/poet2.svg"
+          />
         </div>
         Navbar
         {/* <Navbar /> */}

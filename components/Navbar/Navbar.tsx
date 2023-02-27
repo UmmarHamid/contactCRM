@@ -88,14 +88,14 @@ const Navbar = ({ handleCart }: NavbarModel) => {
         }}
       >
         <div className="menu-section">
-          <div className="logo mb-12 h-8 mobile:hidden">
+          <div className="logo mb-12 h-8 mobile:hidden ">
             <a href="/dashboard">
               <Image
                 src={'/favicon.ico'}
                 alt="Header Logo"
                 width={hovered ? 52 : 32}
                 height={32}
-                className="cursor-pointer"
+                className="cursor-pointer transition-multiple duration-300"
               />
             </a>
           </div>
@@ -116,7 +116,7 @@ const Navbar = ({ handleCart }: NavbarModel) => {
                   <Heading
                     title="Menu Link 1"
                     variant="x-small"
-                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
                 </Link>
                 <Link
@@ -127,7 +127,7 @@ const Navbar = ({ handleCart }: NavbarModel) => {
                   <Heading
                     title="Menu Link 1"
                     variant="x-small"
-                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
                 </Link>
                 <Link
@@ -138,7 +138,7 @@ const Navbar = ({ handleCart }: NavbarModel) => {
                   <Heading
                     title="Menu Link 1"
                     variant="x-small"
-                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
                 </Link>
               </>
@@ -155,7 +155,7 @@ const Navbar = ({ handleCart }: NavbarModel) => {
                   <Heading
                     title="Menu Link 1"
                     variant="x-small"
-                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
                 </Link>
                 <Link
@@ -166,7 +166,7 @@ const Navbar = ({ handleCart }: NavbarModel) => {
                   <Heading
                     title="Menu Link 1"
                     variant="x-small"
-                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
                 </Link>
                 <Link
@@ -177,7 +177,7 @@ const Navbar = ({ handleCart }: NavbarModel) => {
                   <Heading
                     title="Menu Link 1"
                     variant="x-small"
-                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
                 </Link>
               </>
