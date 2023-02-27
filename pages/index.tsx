@@ -1,6 +1,7 @@
 import Button from '@/components/Button/Button';
 import Heading from '@/components/Heading/Heading';
 import Input from '@/components/Input/Input';
+import Link from '@/components/Link/Link';
 import Text from '@/components/Text/Text';
 import TextArea from '@/components/TextArea/TextArea';
 import Head from 'next/head';
@@ -33,6 +34,9 @@ export default function Home({ poets }: any) {
         <Button variant="tertiary-outline" text="Button" />
         <Heading variant="x-large" title="Heading" />
         <Text variant="x-large" title="Text component" />
+        <Link href="www.google.com">
+          <Text title="awdaw" variant="small" />
+        </Link>
       </div>
     </>
   );

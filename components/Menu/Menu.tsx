@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import MenuModel from '../../@types/menu.types';
 import Link from '../Link/Link';
+import Text from '../Text/Text';
 
 const Menu = ({ variant, extraClasses = '', links }: MenuModel) => {
   let classes = classNames(
@@ -12,18 +13,18 @@ const Menu = ({ variant, extraClasses = '', links }: MenuModel) => {
   );
   return (
     <>
-      <ul data-testid="ozone-menu" className={classes}>
+      <ul className={classes}>
         {links?.map((link, index) => {
           return (
             <Link
               key={index}
-              text={link.text}
               href={link.href}
-              variant="navbarMenu"
               iconLeft={link.iconLeft}
               isActive={link.isActive}
               onClickFn={link.onClickFn}
-            />
+            >
+              <Text variant="small" title="test title" />
+            </Link>
           );
         })}
       </ul>

@@ -25,7 +25,7 @@ function Notification({ text, variant, extraClasses }: NotificationModel) {
     'text-error-secondary': variant == 'danger' || variant == 'danger-small',
   });
   return (
-    <div data-testid="notification" className={classes}>
+    <div className={classes}>
       {(variant == 'primary' || variant == 'primary-small') && (
         <CiFaceMeh className={iconClasses} />
       )}

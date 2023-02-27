@@ -13,10 +13,6 @@ function Text({ title, variant, extraClasses }: TextModel) {
     },
     extraClasses,
   );
-  return (
-    <p data-testid="text" className={classes}>
-      {title}
-    </p>
-  );
+  return <p className={classes}>{title}</p>;
 }
 export default Text;

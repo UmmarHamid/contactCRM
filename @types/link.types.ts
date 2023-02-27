@@ -1,11 +1,12 @@
+import { ReactChildren, ReactElement } from 'react';
 import { IconType } from 'react-icons';
 import { Url } from 'url';
+import HeadingModel from './heading.types';
+import TextModel from './text.types';
 type LinkModel = {
-  text?: string;
-  href?: string;
+  href: string;
   target?: string;
-  variant?: 'navbarMenu' | 'text' | 'asset-action' | 'normal';
-  size?: 'default' | 'small';
+  children: ReactElement;
   isActive?: boolean;
   iconLeft?: IconType;
   iconRight?: IconType;

@@ -13,7 +13,7 @@ const Loader = ({ extraClasses }: { extraClasses?: string }) => {
   );
 
   return (
-    <div data-testid="ozone-loader" className={wrapperClasses}>
+    <div className={wrapperClasses}>
       <BiLoaderAlt size={48} className={loaderClasses} />
       <p className={textClasses}>Loading</p>
       <div className="relative top-3 ml-2 flex  space-x-1">

@@ -90,17 +90,8 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
             onClick={() => {}}
           />
         </div>
-        {/* <div className="cart-icon relative cursor-pointer" onClick={handleCart}>
-          <IoMdCart />
-          {cartCount && (
-            <span className="absolute -top-2 -left-1.5 inline-flex h-4 items-center justify-center rounded-3xl bg-gradient-to-l from-violetUltra to-ozoneBlue p-1 text-[10px] font-normal leading-[10px] text-white">
-              {cartCount}
-            </span>
-          )}
-        </div> */}
       </div>
       <div
-        data-testid="navbar"
         ref={navRef}
         className={navbarClasses}
         onMouseOver={() => {
@@ -136,7 +127,6 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
               links={[
                 {
                   href: '/dashboard',
-                  text: 'Dashboard',
                   iconLeft: AiFillHome,
                   onClickFn: () => {
                     handleClose();
@@ -144,7 +134,6 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
                 },
                 {
                   href: '/store',
-                  text: 'Store',
                   iconLeft: FaStore,
                   onClickFn: () => {
                     handleClose();
@@ -152,7 +141,6 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
                 },
                 {
                   href: '/members',
-                  text: 'Members',
                   iconLeft: FaUserFriends,
                   onClickFn: () => {
                     handleClose();
@@ -160,7 +148,6 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
                 },
                 {
                   href: '/inventory',
-                  text: 'Inventory',
                   iconLeft: FaBoxes,
                   onClickFn: () => {
                     handleClose();
@@ -175,7 +162,6 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
               links={[
                 {
                   href: '/security-alerts',
-                  text: 'Security Alerts',
                   iconLeft: FaBell,
                   onClickFn: () => {
                     handleClose();
@@ -183,21 +169,18 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
                 },
                 {
                   href: '/orders',
-                  text: 'Orders',
                   iconLeft: FaBox,
                   onClickFn: () => {
                     handleClose();
                   },
                 },
-                { href: '/logistics', text: 'Logistics', iconLeft: FaTruck },
+                { href: '/logistics', iconLeft: FaTruck },
                 {
                   href: '/subscription',
-                  text: 'Subscription',
                   iconLeft: FaClipboardCheck,
                 },
                 {
                   href: '/settings',
-                  text: 'Settings',
                   iconLeft: FaSlidersH,
                   onClickFn: () => {
                     handleClose();
@@ -207,24 +190,6 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
             />
           </div>
         </div>
-        {/* <div
-          data-testid="user-info"
-          className="info-section flex h-16 items-center justify-between border-t border-solid border-shade-20 pt-6"
-        >
-          {isSuccess ? (
-            <UserInfo
-              designation={loggedInUser.userextra.company_role}
-              userName={loggedInUser.first_name}
-              userInitial={
-                loggedInUser.first_name
-                  ? loggedInUser.first_name.charAt(0)
-                  : '?'
-              }
-            />
-          ) : (
-            <h1>Loading...</h1>
-          )}
-        </div> */}
       </div>
       <div className={overlayClasses} />
     </>

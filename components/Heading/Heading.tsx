@@ -38,10 +38,6 @@ function Heading({ title, variant, extraClasses }: HeadingModel) {
     extraClasses,
   );
   const Tag = `h${size}` as keyof JSX.IntrinsicElements;
-  return (
-    <Tag data-testid="heading" className={classes + ' ' + extraClasses}>
-      {title}
-    </Tag>
-  );
+  return <Tag className={classes + ' ' + extraClasses}>{title}</Tag>;
 }
 export default Heading;
