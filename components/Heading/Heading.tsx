@@ -5,28 +5,19 @@ import HeadingModel from '../../@types/heading.types';
 function Heading({ title, variant, extraClasses }: HeadingModel) {
   let size = 1;
   switch (variant) {
-    case 'x-small-light':
-      size = 6;
-      break;
     case 'x-small':
-      size = 6;
-      break;
-    case 'small':
-      size = 6;
-      break;
-    case 'medium':
       size = 5;
       break;
-    case 'large':
+    case 'small':
       size = 4;
       break;
-    case 'x-large':
+    case 'medium':
       size = 3;
       break;
-    case '2x-large':
+    case 'large':
       size = 2;
       break;
-    case '3x-large':
+    case 'x-large':
       size = 1;
       break;
     default:
@@ -34,19 +25,15 @@ function Heading({ title, variant, extraClasses }: HeadingModel) {
   }
 
   let classes = classNames(
+    'text-text-primary',
     {
-      'font-normal text-xs leading-xs text-shade-60':
-        variant == 'x-small-light',
-      'font-medium text-xs leading-xs text-deepViolet': variant == 'x-small',
-      'font-medium text-sm leading-sm text-deepViolet': variant == 'small',
-      'font-medium text-md leading-md text-deepViolet mobile:text-sm mobile:leading-sm':
+      'text-xs leading-xs': variant == 'x-small',
+      'text-sm leading-sm': variant == 'small',
+      'text-md leading-md mobile:text-sm mobile:leading-sm':
         variant == 'medium',
-      'font-medium text-lg leading-lg text-deepViolet': variant == 'large',
-      'font-medium text-xl leading-xl text-deepViolet mobile:text-lg mobile:leading-lg':
+      'text-lg leading-lg': variant == 'large',
+      'text-xl leading-xl mobile:text-lg mobile:leading-lg':
         variant == 'x-large',
-      'font-medium text-2xl leading-2xl text-deepViolet': variant == '2x-large',
-      'font-semibold text-3xl leading-3xl text-deepViolet':
-        variant == '3x-large',
     },
     extraClasses,
   );

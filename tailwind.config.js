@@ -27,6 +27,9 @@ module.exports = {
           primary: '#E0E0E0',
           dark: '#637381',
         },
+        text: {
+          primary: '#212B36',
+        },
       },
       fontFamily: {
         primary: ['Inter', 'sans-serif'],

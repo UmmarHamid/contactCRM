@@ -1,4 +1,5 @@
 import Button from '@/components/Button/Button';
+import Heading from '@/components/Heading/Heading';
 import Input from '@/components/Input/Input';
 import TextArea from '@/components/TextArea/TextArea';
 import Head from 'next/head';
@@ -29,6 +30,7 @@ export default function Home({ poets }: any) {
         <Button variant="secondary-rounded" text="Secondary" />
         <Button variant="tertiary-rounded" text="Tertiary" />
         <Button variant="tertiary-outline" text="Button" />
+        <Heading variant="x-large" title="Heading" />
       </div>
     </>
   );
