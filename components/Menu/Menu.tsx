@@ -4,30 +4,16 @@ import MenuModel from '../../@types/menu.types';
 import Link from '../Link/Link';
 import Text from '../Text/Text';
 
-const Menu = ({ variant, extraClasses = '', links }: MenuModel) => {
+const Menu = ({ variant, extraClasses = '', children }: MenuModel) => {
   let classes = classNames(
     {
-      'inline-flex flex-col': variant == 'navbar',
+      'inline-flex flex-col space-y-4': variant == 'navbar',
     },
     extraClasses,
   );
   return (
     <>
-      <ul className={classes}>
-        {links?.map((link, index) => {
-          return (
-            <Link
-              key={index}
-              href={link.href}
-              iconLeft={link.iconLeft}
-              isActive={link.isActive}
-              onClickFn={link.onClickFn}
-            >
-              <Text variant="small" title="test title" />
-            </Link>
-          );
-        })}
-      </ul>
+      <ul className={classes}>{children}</ul>
     </>
   );
 };

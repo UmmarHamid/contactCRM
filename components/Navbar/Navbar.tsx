@@ -1,27 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-import { AiFillHome } from 'react-icons/ai';
 import { ImCross } from 'react-icons/im';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import {
-  FaBell,
-  FaBox,
-  FaBoxes,
-  FaClipboardCheck,
-  FaSignOutAlt,
-  FaSlidersH,
-  FaStore,
-  FaTruck,
-  FaUserFriends,
-} from 'react-icons/fa';
-import { IoMdCart } from 'react-icons/io';
+import { FaSignOutAlt } from 'react-icons/fa';
 import NavbarModel from '../../@types/navbar.types';
 import classNames from 'classnames';
-import Link from 'next/link';
-import router from 'next/router';
 import Menu from '../Menu/Menu';
+import Heading from '../Heading/Heading';
+import Link from '../Link/Link';
 
-const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
+const Navbar = ({ handleCart }: NavbarModel) => {
   const [hovered, setHovered] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
   const handleClose = () => {
@@ -42,7 +30,7 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
     return () => document.removeEventListener('mousedown', closeHamburgerMenu);
   }, []);
   let overlayClasses = classNames(
-    'fixed pointer-events-none top-0 w-full flex h-screen py-2 px-4 bg-shade-60 transition-opacity duration-500 ease-in',
+    'fixed pointer-events-none top-0 w-full flex h-screen py-2 px-4 bg-grey-primary transition-opacity duration-300 ease-out',
     {
       'opacity-100': hovered,
       'opacity-0': !hovered,
@@ -51,12 +39,12 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
     },
   );
   let navbarClasses = classNames(
-    'navbar justify-between group h-screen w-28 transition-multiple duration-300 ease-in flex flex-col py-6 px-9 bg-gradient-to-r from-white to-milkyMist top-0 fixed z-10',
+    'navbar justify-between group h-screen w-28 transition-multiple duration-300 ease-in flex flex-col py-6 px-9 bg-gradient-to-r from-white to-grey-primary top-0 fixed z-10',
     {
       'mobile:w-72 mobile:absolute mobile:-left-72 mobile:transition-left mobile:duration-300 mobile:ease-out':
         !navbarOpen,
       'mobile:w-72 mobile:left-0 mobile:transition-left': navbarOpen,
-      'hover:w-72 navbar-open': hovered,
+      'hover:w-72 navbar-open hover:transition-left ease-in': hovered,
       'navbar-closed': !hovered,
     },
   );
@@ -72,16 +60,14 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
           onClick={handleHamburgerClick}
         />
         <div className="mobile-logo mx-auto h-6">
-          <Link href="/">
-            <a>
-              <Image
-                src={'/logo-mobile.svg'}
-                alt="Header Logo"
-                width={86}
-                height={24}
-                className="cursor-pointer"
-              />
-            </a>
+          <Link href="/" variant="text">
+            <Image
+              src={'/favicon.ico'}
+              alt="Header Logo"
+              width={36}
+              height={24}
+              className="cursor-pointer"
+            />
           </Link>
         </div>
         <div className="flex">
@@ -103,17 +89,15 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
       >
         <div className="menu-section">
           <div className="logo mb-12 h-8 mobile:hidden">
-            <Link href="/dashboard">
-              <a>
-                <Image
-                  src={hovered ? '/header-logo.svg' : '/header-logo-small.svg'}
-                  alt="Header Logo"
-                  width={hovered ? 115 : 32}
-                  height={32}
-                  className="cursor-pointer"
-                />
-              </a>
-            </Link>
+            <a href="/dashboard">
+              <Image
+                src={'/favicon.ico'}
+                alt="Header Logo"
+                width={hovered ? 52 : 32}
+                height={32}
+                className="cursor-pointer"
+              />
+            </a>
           </div>
           <div
             className="close-btn mx-[9px] mb-6 hidden h-4 w-[10px] cursor-pointer mobile:inline-flex"
@@ -122,72 +106,82 @@ const Navbar = ({ cartCount, handleCart }: NavbarModel) => {
             <ImCross className="text-shade-80" />
           </div>
           <div className="border-b border-solid border-shade-20 pb-12">
-            <Menu
-              variant="navbar"
-              links={[
-                {
-                  href: '/dashboard',
-                  iconLeft: AiFillHome,
-                  onClickFn: () => {
-                    handleClose();
-                  },
-                },
-                {
-                  href: '/store',
-                  iconLeft: FaStore,
-                  onClickFn: () => {
-                    handleClose();
-                  },
-                },
-                {
-                  href: '/members',
-                  iconLeft: FaUserFriends,
-                  onClickFn: () => {
-                    handleClose();
-                  },
-                },
-                {
-                  href: '/inventory',
-                  iconLeft: FaBoxes,
-                  onClickFn: () => {
-                    handleClose();
-                  },
-                },
-              ]}
-            />
+            <Menu variant="navbar">
+              <>
+                <Link
+                  href="www.google.com"
+                  iconLeft={FaSignOutAlt}
+                  variant="navbar"
+                >
+                  <Heading
+                    title="Menu Link 1"
+                    variant="x-small"
+                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                  />
+                </Link>
+                <Link
+                  href="www.google.com"
+                  iconLeft={FaSignOutAlt}
+                  variant="navbar"
+                >
+                  <Heading
+                    title="Menu Link 1"
+                    variant="x-small"
+                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                  />
+                </Link>
+                <Link
+                  href="www.google.com"
+                  iconLeft={FaSignOutAlt}
+                  variant="navbar"
+                >
+                  <Heading
+                    title="Menu Link 1"
+                    variant="x-small"
+                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                  />
+                </Link>
+              </>
+            </Menu>
           </div>
           <div className="pt-12">
-            <Menu
-              variant="navbar"
-              links={[
-                {
-                  href: '/security-alerts',
-                  iconLeft: FaBell,
-                  onClickFn: () => {
-                    handleClose();
-                  },
-                },
-                {
-                  href: '/orders',
-                  iconLeft: FaBox,
-                  onClickFn: () => {
-                    handleClose();
-                  },
-                },
-                { href: '/logistics', iconLeft: FaTruck },
-                {
-                  href: '/subscription',
-                  iconLeft: FaClipboardCheck,
-                },
-                {
-                  href: '/settings',
-                  iconLeft: FaSlidersH,
-                  onClickFn: () => {
-                    handleClose();
-                  },
-                },
-              ]}
-            />
+            <Menu variant="navbar">
+              <>
+                <Link
+                  href="www.google.com"
+                  iconLeft={FaSignOutAlt}
+                  variant="navbar"
+                >
+                  <Heading
+                    title="Menu Link 1"
+                    variant="x-small"
+                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                  />
+                </Link>
+                <Link
+                  href="www.google.com"
+                  iconLeft={FaSignOutAlt}
+                  variant="navbar"
+                >
+                  <Heading
+                    title="Menu Link 1"
+                    variant="x-small"
+                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                  />
+                </Link>
+                <Link
+                  href="www.google.com"
+                  iconLeft={FaSignOutAlt}
+                  variant="navbar"
+                >
+                  <Heading
+                    title="Menu Link 1"
+                    variant="x-small"
+                    extraClasses="hover:text-blue-primary text-[0px] mobile:text-xs group-hover:text-xs hover:transition-left duration-150 ease-in"
+                  />
+                </Link>
+              </>
+            </Menu>
           </div>
         </div>
       </div>
