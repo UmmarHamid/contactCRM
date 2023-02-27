@@ -59,12 +59,12 @@ const Navbar = ({ handleCart }: NavbarModel) => {
           className="cursor-pointer"
           onClick={handleHamburgerClick}
         />
-        <div className="mobile-logo mx-auto h-6">
+        <div className="mobile-logo mx-auto">
           <Link href="/" variant="text">
             <Image
               src={'/favicon.ico'}
               alt="Header Logo"
-              width={36}
+              width={24}
               height={24}
               className="cursor-pointer"
             />

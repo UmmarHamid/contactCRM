@@ -6,15 +6,15 @@ import Text from '../Text/Text';
 
 const Card = ({ variant, imageSrc, title, description }: CardModel) => {
   let rootClasses = classNames(
-    'relative w-72 h-80 flex justify-center rounded-lg',
+    'relative w-72 mobile:w-full h-80 flex justify-center rounded-lg',
   );
-  let imageClasses = classNames('');
+  let imageClasses = classNames('w-full object-cover');
   let infoClasses = classNames(
     'rounded-lg bg-white px-14 py-5 absolute bottom-5 mx-5 text-center',
   );
   return (
     <div className={rootClasses}>
-      <Image className="" alt="" src={imageSrc} fill={true} />
+      <Image className={imageClasses} alt="" src={imageSrc} fill={true} />
       <div className={infoClasses}>
         <Text
           variant="medium"
