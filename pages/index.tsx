@@ -1,5 +1,8 @@
-import Head from "next/head";
-import { supabase } from "../lib/subabaseClient";
+import Button from '@/components/Button/Button';
+import Input from '@/components/Input/Input';
+import TextArea from '@/components/TextArea/TextArea';
+import Head from 'next/head';
+import { supabase } from '../lib/subabaseClient';
 
 export default function Home({ poets }: any) {
   return (
@@ -19,12 +22,20 @@ export default function Home({ poets }: any) {
             </h1>
           );
         })}
+      <div className="inline-flex flex-col space-y-2">
+        <TextArea variant="default" placeholder="input" name="textarea" />
+        <Input variant="default" placeholder="input" name="input" />
+        <Button variant="primary-rounded" text="Primary" />
+        <Button variant="secondary-rounded" text="Secondary" />
+        <Button variant="tertiary-rounded" text="Tertiary" />
+        <Button variant="tertiary-outline" text="Button" />
+      </div>
     </>
   );
 }
 
 export async function getServerSideProps() {
-  let { data } = await supabase.from("poets").select();
+  let { data } = await supabase.from('poets').select();
   return {
     props: {
       poets: data,
