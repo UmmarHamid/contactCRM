@@ -95,7 +95,7 @@ const Navbar = ({ handleCart }: NavbarModel) => {
                 alt="Header Logo"
                 width={hovered ? 52 : 32}
                 height={32}
-                className="cursor-pointer transition-multiple duration-300"
+                className="cursor-pointer ml-2 transition-multiple duration-300"
               />
             </a>
           </div>

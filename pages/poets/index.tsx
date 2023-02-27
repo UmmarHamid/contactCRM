@@ -2,6 +2,7 @@ import Button from '@/components/Button/Button';
 import Card from '@/components/Card/Card';
 import Heading from '@/components/Heading/Heading';
 import Input from '@/components/Input/Input';
+import Link from 'next/link';
 
 import Text from '@/components/Text/Text';
 import TextArea from '@/components/TextArea/TextArea';
@@ -22,13 +23,14 @@ export default function Poets({ poets }: any) {
           {poets &&
             poets.map((poet: any) => {
               return (
-                <Card
-                  key={poet.id}
-                  variant="poet"
-                  title={poet.name}
-                  description={poet.address}
-                  imageSrc="/poet2.svg"
-                />
+                <Link key={poet.id} href="/">
+                  <Card
+                    variant="poet"
+                    title={poet.name}
+                    description={poet.address}
+                    imageSrc="/poet2.svg"
+                  />
+                </Link>
               );
             })}
         </main>
