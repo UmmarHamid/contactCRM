@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { ImCross } from 'react-icons/im';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FaSignOutAlt } from 'react-icons/fa';
+import { FaHome, FaSignOutAlt } from 'react-icons/fa';
 import NavbarModel from '../../@types/navbar.types';
 import classNames from 'classnames';
 import Menu from '../Menu/Menu';
@@ -108,35 +108,16 @@ const Navbar = ({ handleCart }: NavbarModel) => {
           <div className="border-b border-solid border-shade-20 pb-12">
             <Menu variant="navbar">
               <>
-                <Link
-                  href="www.google.com"
-                  iconLeft={FaSignOutAlt}
-                  variant="navbar"
-                >
+                <Link href="/" iconLeft={FaHome} variant="navbar">
                   <Heading
-                    title="Menu Link 1"
+                    title="Home"
                     variant="x-small"
                     extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
                 </Link>
-                <Link
-                  href="www.google.com"
-                  iconLeft={FaSignOutAlt}
-                  variant="navbar"
-                >
+                <Link href="/poets" iconLeft={FaSignOutAlt} variant="navbar">
                   <Heading
-                    title="Menu Link 1"
-                    variant="x-small"
-                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
-                  />
-                </Link>
-                <Link
-                  href="www.google.com"
-                  iconLeft={FaSignOutAlt}
-                  variant="navbar"
-                >
-                  <Heading
-                    title="Menu Link 1"
+                    title="Poets"
                     variant="x-small"
                     extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
                   />
