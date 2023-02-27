@@ -24,20 +24,14 @@ function Heading({ title, variant, extraClasses }: HeadingModel) {
       size = 1;
   }
 
-  let classes = classNames(
-    'text-text-primary',
-    {
-      'text-xs leading-xs': variant == 'x-small',
-      'text-sm leading-sm': variant == 'small',
-      'text-md leading-md mobile:text-sm mobile:leading-sm':
-        variant == 'medium',
-      'text-lg leading-lg': variant == 'large',
-      'text-xl leading-xl mobile:text-lg mobile:leading-lg':
-        variant == 'x-large',
-    },
-    extraClasses,
-  );
+  let classes = classNames(extraClasses, 'text-text-primary', {
+    'text-xs leading-xs': variant == 'x-small',
+    'text-sm leading-sm': variant == 'small',
+    'text-md leading-md mobile:text-sm mobile:leading-sm': variant == 'medium',
+    'text-lg leading-lg': variant == 'large',
+    'text-xl leading-xl mobile:text-lg mobile:leading-lg': variant == 'x-large',
+  });
   const Tag = `h${size}` as keyof JSX.IntrinsicElements;
-  return <Tag className={classes + ' ' + extraClasses}>{title}</Tag>;
+  return <Tag className={classes}>{title}</Tag>;
 }
 export default Heading;

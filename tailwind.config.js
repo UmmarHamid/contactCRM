@@ -62,6 +62,25 @@ module.exports = {
         lg: '45px',
         xl: '55px',
       },
+      transitionProperty: {
+        multiple: 'width , height , backgroundColor , border-radius',
+        left: 'left',
+      },
+      animation: {
+        fade: 'fade 2.5s linear infinite',
+        pulse: 'pulse 1.7s infinite',
+      },
+      keyframes: {
+        fade: {
+          '0%': { opacity: 0 },
+          '12%': { opacity: 0.5 },
+          '25%': { opacity: 1 },
+          '37%': { opacity: 0.5 },
+          '50%': { opacity: 0 },
+          '75%': { opacity: 0 },
+          '100%': { opacity: 0 },
+        },
+      },
     },
   },
   plugins: [],

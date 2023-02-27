@@ -4,7 +4,7 @@ import TextModel from '../../@types/text.types';
 
 function Text({ title, variant, extraClasses }: TextModel) {
   let classes = classNames(
-    'font-normal text-deepViolet',
+    'font-normal',
     {
       'text-4xs leading-4xs': variant == 'small',
       'text-3xs leading-3xs': variant == 'medium',

@@ -12,5 +12,6 @@ type LinkModel = {
   iconRight?: IconType;
   onClickFn?: (...args: any) => void;
   extraClasses?: string;
+  variant: 'navbar' | 'text';
 };
 export default LinkModel;
