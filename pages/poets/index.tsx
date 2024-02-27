@@ -14,7 +14,7 @@ export default function Poets({ poets }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="root mt-16 mobile:p-4">
+      <div className="root mt-16 mobile:py-4">
         <Heading
           variant="x-large"
           title="Poet's Page"

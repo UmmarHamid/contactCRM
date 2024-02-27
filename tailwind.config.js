@@ -35,6 +35,7 @@ module.exports = {
         primary: ['Inter', 'sans-serif'],
       },
       fontSize: {
+        '5xs': '12px',
         '4xs': '14px',
         '3xs': '16px',
         '2xs': '18px',

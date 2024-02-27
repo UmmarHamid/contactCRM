@@ -9,7 +9,7 @@ import Menu from '../Menu/Menu';
 import Heading from '../Heading/Heading';
 import Link from '../Link/Link';
 
-const Navbar = ({ handleCart }: NavbarModel) => {
+const Navbar = ({ handleCart, navItems }: NavbarModel) => {
   const [hovered, setHovered] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
   const handleClose = () => {
@@ -48,35 +48,9 @@ const Navbar = ({ handleCart }: NavbarModel) => {
       'navbar-closed': !hovered,
     },
   );
-  let mobileNavClasses = classNames(
-    'hidden mobile:flex items-center px-4 py-3 bg-gradient-to-b from-white to-milkyMist',
-  );
 
   return (
     <>
-      <div className={mobileNavClasses}>
-        <GiHamburgerMenu
-          className="cursor-pointer"
-          onClick={handleHamburgerClick}
-        />
-        <div className="mobile-logo mx-auto">
-          <Link href="/" variant="text">
-            <Image
-              src={'/favicon.ico'}
-              alt="Header Logo"
-              width={24}
-              height={24}
-              className="cursor-pointer"
-            />
-          </Link>
-        </div>
-        <div className="flex">
-          <FaSignOutAlt
-            className="h-6 w-6 cursor-pointer p-1"
-            onClick={() => {}}
-          />
-        </div>
-      </div>
       <div
         ref={navRef}
         className={navbarClasses}
@@ -108,59 +82,40 @@ const Navbar = ({ handleCart }: NavbarModel) => {
           <div className="border-b border-solid border-shade-20 pb-12">
             <Menu variant="navbar">
               <>
-                <Link href="/" iconLeft={FaHome} variant="navbar">
-                  <Heading
-                    title="Home"
-                    variant="x-small"
-                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
-                  />
-                </Link>
-                <Link href="/poets" iconLeft={FaSignOutAlt} variant="navbar">
-                  <Heading
-                    title="Poets"
-                    variant="x-small"
-                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
-                  />
-                </Link>
+                {navItems.slice(0, 2).map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    iconLeft={item.icon}
+                    variant="navbar"
+                  >
+                    <Heading
+                      title={item.title}
+                      variant="x-small"
+                      extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
+                    />
+                  </Link>
+                ))}
               </>
             </Menu>
           </div>
           <div className="pt-12">
             <Menu variant="navbar">
               <>
-                <Link
-                  href="www.google.com"
-                  iconLeft={FaSignOutAlt}
-                  variant="navbar"
-                >
-                  <Heading
-                    title="Menu Link 1"
-                    variant="x-small"
-                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
-                  />
-                </Link>
-                <Link
-                  href="www.google.com"
-                  iconLeft={FaSignOutAlt}
-                  variant="navbar"
-                >
-                  <Heading
-                    title="Menu Link 1"
-                    variant="x-small"
-                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
-                  />
-                </Link>
-                <Link
-                  href="www.google.com"
-                  iconLeft={FaSignOutAlt}
-                  variant="navbar"
-                >
-                  <Heading
-                    title="Menu Link 1"
-                    variant="x-small"
-                    extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
-                  />
-                </Link>
+                {navItems.slice(2).map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    iconLeft={item.icon}
+                    variant="navbar"
+                  >
+                    <Heading
+                      title={item.title}
+                      variant="x-small"
+                      extraClasses="hover:text-blue-primary h-10 opacity-0 group-hover:opacity-100 duration-150 ease-in"
+                    />
+                  </Link>
+                ))}
               </>
             </Menu>
           </div>
