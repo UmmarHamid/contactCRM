@@ -1,7 +1,11 @@
 type CardModel = {
-  variant: 'poet';
+  variant: 'poet' | 'book' | 'verticalCard';
   imageSrc: string;
   title: string;
+  category?: string;
+  date?: string;
+  authorName?: string;
+  authorImage?: string;
   description: string;
 };
 

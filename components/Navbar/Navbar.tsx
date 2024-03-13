@@ -32,9 +32,9 @@ const Navbar = ({ handleCart, navItems }: NavbarModel) => {
   let overlayClasses = classNames(
     'fixed pointer-events-none top-0 w-full flex h-screen py-2 px-4 bg-grey-primary transition-opacity duration-300 ease-out',
     {
-      'opacity-100': hovered,
+      'opacity-70': hovered,
       'opacity-0': !hovered,
-      'mobile:opacity-100': navbarOpen,
+      'mobile:opacity-70': navbarOpen,
       'mobile:opacity-0': !navbarOpen,
     },
   );

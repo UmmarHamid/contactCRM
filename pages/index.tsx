@@ -2,13 +2,16 @@ import Button from '@/components/Button/Button';
 import Card from '@/components/Card/Card';
 import Heading from '@/components/Heading/Heading';
 import Input from '@/components/Input/Input';
-
 import Text from '@/components/Text/Text';
 import TextArea from '@/components/TextArea/TextArea';
 import Head from 'next/head';
 import { supabase } from '../lib/subabaseClient';
+import Animation from '@/components/Poetry-Lottie/Animation';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
-export default function Home({ poets }: any) {
+export default function Home() {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -24,7 +27,7 @@ export default function Home({ poets }: any) {
           extraClasses="font-bold text-center mb-10"
         />
         <main className="grid grid-cols-3 mobile:grid-cols-1 gap-y-10 gap-x-6">
-          Add data here
+          <Animation onComplete={() => router.push('/dashboard')} />
         </main>
       </div>
     </>
