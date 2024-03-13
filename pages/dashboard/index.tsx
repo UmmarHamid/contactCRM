@@ -78,26 +78,23 @@ const Dashboard = ({ poets, books }: any) => {
         <div className="mb-20 mx-auto">
           <Slider {...settings}>
             {featuredBooks.map((book: any) => (
-              <>
-                <Link key={book.id} href={`/books/${book.id}`}>
-                  <Card
-                    variant="book"
-                    title={book.title}
-                    description={book.description}
-                    imageSrc="/book.avif"
-                    category={book.category}
-                    date={book.publish_date}
-                    authorName={book.author_name}
-                    authorImage="/author.webp"
-                  />
-                </Link>
-              </>
+              <Link key={book.id} href={`/books/${book.id}`}>
+                <Card
+                  variant="book"
+                  title={book.title}
+                  description={book.description}
+                  imageSrc="/book.avif"
+                  category={book.category}
+                  date={book.publish_date}
+                  authorName={book.author_name}
+                  authorImage="/author.webp"
+                />
+              </Link>
             ))}
           </Slider>
         </div>
         <div className="mb-20 mx-auto">
           <Slider {...settings}>
-            {}
             {poets.map((poet: any) => (
               <>
                 <Link key={poet.id} href="/">
@@ -120,7 +117,7 @@ const Dashboard = ({ poets, books }: any) => {
 export default Dashboard;
 
 export async function getServerSideProps() {
-  let { data: poets } = await supabase.from('poets').select();
+  const { data: poets } = await supabase.from('poets').select();
   const { data: books } = await supabase.from('book_list').select();
   return {
     props: {

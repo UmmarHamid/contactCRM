@@ -8,13 +8,12 @@ function Notification({ text, variant, extraClasses }: NotificationModel) {
   let classes = classNames(
     'flex border border-solid rounded-lg items-center',
     {
-      'border-violetUltra bg-milkyMist p-4 ': variant == 'primary',
-      'border-plantaGreen-primary bg-plantaGreen-10 p-4': variant == 'success',
-      'border-error-secondary bg-error-primary p-4': variant == 'danger',
-      'border-violetUltra bg-milkyMist p-2': variant == 'primary-small',
-      'border-plantaGreen-primary bg-plantaGreen-10 p-2':
-        variant == 'success-small',
-      'border-error-secondary bg-error-primary p-2': variant == 'danger-small',
+      'border-blue-600 bg-blue-200 p-4 ': variant == 'primary',
+      'border-green-600 bg-green-200 p-4': variant == 'success',
+      'border-red-600 bg-red-200 p-4': variant == 'danger',
+      'border-blue-600 bg-blue-200 p-2': variant == 'primary-small',
+      'border-green-600 bg-green-200 p-2': variant == 'success-small',
+      'border-red-600 bg-red-200 p-2': variant == 'danger-small',
     },
     extraClasses,
   );
