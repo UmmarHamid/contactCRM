@@ -7,9 +7,11 @@ import { supabase } from '../../lib/subabaseClient';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Text from '@/components/Text/Text';
 
 const Dashboard = ({ poets, books }: any) => {
-  const featuredBooks = books.filter((book: any) => book.featured);
+  const featuredBooks = books.filter((book: any) => book.is_featured);
+  const featuredPoets = poets.filter((poet: any) => poet.is_featured);
 
   var settings = {
     dots: true,
@@ -61,6 +63,7 @@ const Dashboard = ({ poets, books }: any) => {
       },
     ],
   };
+  console.log(featuredPoets);
   return (
     <>
       <Head>
@@ -69,14 +72,20 @@ const Dashboard = ({ poets, books }: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="root mt-16 mobile:py-4">
+      <div className="root mobile:py-4">
         <Heading
-          variant="x-large"
+          variant="medium"
           title="Poet's Page"
           extraClasses="font-bold text-center mb-10"
         />
-        <div className="mb-20 mx-auto">
-          <Slider {...settings}>
+        <div className="mb-20 mx-auto flex flex-col">
+          <div className="flex justify-between">
+            <Text title="Featured Books" variant="x-large" />
+            <Link href={'/books'}>
+              <p className="text-xs text-sky-600">View All</p>
+            </Link>
+          </div>
+          <div className="flex gap-4 overflow-scroll">
             {featuredBooks.map((book: any) => (
               <Link key={book.id} href={`/books/${book.id}`}>
                 <Card
@@ -91,23 +100,29 @@ const Dashboard = ({ poets, books }: any) => {
                 />
               </Link>
             ))}
-          </Slider>
+          </div>
         </div>
-        <div className="mb-20 mx-auto">
-          <Slider {...settings}>
-            {poets.map((poet: any) => (
+        <div className="mb-20 mx-auto flex flex-col gap-3">
+          <div className="flex justify-between">
+            <Text title="Featured Poets" variant="x-large" />
+            <Link href={'/poets'}>
+              <p className="text-xs text-sky-600">View All</p>
+            </Link>
+          </div>
+          <div className="flex gap-4 overflow-scroll">
+            {featuredPoets.map((poet: any) => (
               <>
-                <Link key={poet.id} href="/">
+                <Link key={poet.id} href={`/poets/${poet.id}`}>
                   <Card
                     variant="poet"
                     title={poet.name}
-                    description={poet.address}
+                    description={poet.biography}
                     imageSrc="/poet2.svg"
                   />
                 </Link>
               </>
             ))}
-          </Slider>
+          </div>
         </div>
       </div>
     </>
