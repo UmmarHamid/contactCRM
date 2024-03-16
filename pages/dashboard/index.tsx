@@ -10,7 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Dashboard = ({ poets, books }: any) => {
   const featuredBooks = books.filter((book: any) => book.featured);
-
+  const featuredPoets = poets.filter((poet: any) => poet.featured);
   var settings = {
     dots: true,
     infinite: true,
@@ -98,9 +98,9 @@ const Dashboard = ({ poets, books }: any) => {
         <div className="mb-20 mx-auto">
           <Slider {...settings}>
             {}
-            {poets.map((poet: any) => (
+            {featuredPoets.map((poet: any) => (
               <>
-                <Link key={poet.id} href="/">
+                <Link key={poet.id} href={`/poets/${poet.id}`}>
                   <Card
                     variant="poet"
                     title={poet.name}

@@ -1,6 +1,9 @@
 import { supabase } from '../../lib/subabaseClient';
 
 const BookDetailPage = ({ book }: any) => {
+  if (!book) {
+    return <p>Books not fetching</p>;
+  }
   return (
     <div>
       <h1>{book.title}</h1>
@@ -16,10 +19,6 @@ export async function getServerSideProps({ params }: any) {
     .select('*')
     .eq('id', id)
     .single();
-
-  if (!book) {
-    return <p>Books not fetching</p>;
-  }
 
   return {
     props: {
