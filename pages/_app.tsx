@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
       icon: FaHome,
     },
     {
-      id: '2',
+      id: '1',
       title: 'Poets',
       href: '/poets',
       icon: FaUserSecret,
