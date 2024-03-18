@@ -1,5 +1,5 @@
 type TextModel = {
-  title: string;
+  title?: string;
   variant: 'small' | 'medium' | 'large' | 'x-large';
   extraClasses?: string;
 };

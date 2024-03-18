@@ -17,9 +17,7 @@ import {
 } from 'react-icons/fa';
 
 export default function App({ Component, pageProps }: AppProps) {
-  let rootClasses = classNames(
-    'ml-36 root-wrapper max-h-screen mobile:ml-0 mobile:px-4',
-  );
+  let rootClasses = classNames('ml-36 root-wrapper mobile:ml-0 mobile:px-4');
   const navItems = [
     {
       id: '0',

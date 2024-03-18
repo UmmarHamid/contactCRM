@@ -8,62 +8,23 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Text from '@/components/Text/Text';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { FaSearch } from 'react-icons/fa';
 
 const Dashboard = ({ poets, books }: any) => {
   const featuredBooks = books.filter((book: any) => book.is_featured);
   const featuredPoets = poets.filter((poet: any) => poet.is_featured);
-
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    centerMode: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-          adaptiveHeight: true,
-          autoplay: true,
-          fade: true,
-          autoplaySpeed: 2000,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          adaptiveHeight: true,
-          infinite: true,
-          fade: true,
-          autoplay: true,
-          autoplaySpeed: 2000,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          adaptiveHeight: true,
-          infinite: true,
-          autoplay: true,
-          fade: false,
-          autoplaySpeed: 2000,
-        },
-      },
-    ],
+  const [search, setSearch] = useState('');
+  const [filteredBooks, setfilteredBooks] = useState(books);
+  const router = useRouter();
+  const handleSearch = () => {
+    const searchedBooks = books.filter((book: any) =>
+      book.title.toLowerCase().includes(search.toLowerCase()),
+    );
+    setfilteredBooks(searchedBooks);
   };
-  console.log(featuredPoets);
+
   return (
     <>
       <Head>
@@ -78,14 +39,34 @@ const Dashboard = ({ poets, books }: any) => {
           title="Poet's Page"
           extraClasses="font-bold text-center mb-10"
         />
-        <div className="mb-20 mx-auto flex flex-col">
+        <div className="flex justify-center pb-8 w-[100%]">
+          <input
+            type="text"
+            className="bg-slate-50 pl-3 ml-[10px] outline-none text-black rounded-l-lg border-0 font-bold py-2 w-[100%]"
+            placeholder="Search Here"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key == 'Enter') {
+                router.push(`/search/${search}`);
+              }
+            }}
+          />
+          <button
+            className="bg-slate-50 rounded-r-lg py-2 px-4 border-l-2 border-gray-400"
+            onClick={() => router.push(`/search/${search}`)}
+          >
+            <FaSearch />
+          </button>
+        </div>
+        <div className="mx-auto flex flex-col">
           <div className="flex justify-between">
             <Text title="Featured Books" variant="x-large" />
             <Link href={'/books'}>
               <p className="text-xs text-sky-600">View All</p>
             </Link>
           </div>
-          <div className="flex gap-4 overflow-scroll">
+          <div className="flex pb-4 mb-4  gap-4 overflow-scroll">
             {featuredBooks.map((book: any) => (
               <Link key={book.id} href={`/books/${book.id}`}>
                 <Card
@@ -112,11 +93,14 @@ const Dashboard = ({ poets, books }: any) => {
           <div className="flex gap-4 overflow-scroll">
             {featuredPoets.map((poet: any) => (
               <>
-                <Link key={poet.id} href={`/poets/${poet.id}`}>
+                <Link
+                  key={poet.id}
+                  href={`/poets/${poet.id}`}
+                  className="flex justify-center items-center border-2 border-black-800 bg-white shadow-[8.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-2xl p-1 hover:scale-[110%] mb-8"
+                >
                   <Card
                     variant="poet"
                     title={poet.name}
-                    description={poet.biography}
                     imageSrc="/poet2.svg"
                   />
                 </Link>
