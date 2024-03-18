@@ -2,6 +2,9 @@ import Notification from '@/components/Notification/Notification';
 import { supabase } from '../../lib/subabaseClient';
 
 const BookDetailPage = ({ book }: any) => {
+  if (!book) {
+    return <p>Books not fetching</p>;
+  }
   return (
     <div>
       <h1>{book.title}</h1>
@@ -24,10 +27,6 @@ export async function getServerSideProps({ params }: any) {
     .select('*')
     .eq('id', id)
     .single();
-
-  if (!book) {
-    return <p>does not exizst</p>;
-  }
 
   return {
     props: {

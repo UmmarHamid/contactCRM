@@ -14,21 +14,24 @@ export default function Poets({ poets }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="root mt-16 mobile:py-4">
+      <div className="root mt-1 mobile:py-1">
         <Heading
-          variant="x-large"
+          variant="medium"
           title="Poet's Page"
-          extraClasses="font-bold text-center mb-10"
+          extraClasses="font-bold text-center mb-6"
         />
-        <main className="grid grid-cols-3 mobile:grid-cols-1 gap-y-10 gap-x-6">
+        <main className="grid grid-cols-3  justify-center items-center gap-y-6 gap-x-5 ">
           {poets &&
             poets.map((poet: any) => {
               return (
-                <Link key={poet.id} href="/">
+                <Link
+                  key={poet.id}
+                  href={`/poets/${poet.id}`}
+                  className="flex justify-center items-center border-2 border-black-800 bg-white shadow-[8.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-2xl p-1 hover:scale-[110%] "
+                >
                   <Card
                     variant="poet"
                     title={poet.name}
-                    description={poet.address}
                     imageSrc="/poet2.svg"
                   />
                 </Link>
