@@ -7,10 +7,6 @@ import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { FaMapMarkedAlt } from 'react-icons/fa';
 import { IoLanguageSharp } from 'react-icons/io5';
 const PoetDetailPage = ({ poet, poetBooks }: any) => {
-  console.log(poetBooks);
-  console.log(poet);
-  const description =
-    'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here';
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   if (!poet) {
@@ -49,11 +45,12 @@ const PoetDetailPage = ({ poet, poetBooks }: any) => {
           </div>
         </div>
         {showFullDescription ? (
-          <p className="font-bold text-gray-600 text-pretty">{description}</p>
+          <p className="font-bold text-gray-600 text-pretty">
+            {poet.biography}
+          </p>
         ) : (
           <p className="font-bold text-gray-600 text-pretty">
-            {' '}
-            {description.slice(0, 100) + '...'}
+            {poet.biography.slice(0, 100) + '...'}
           </p>
         )}
         {showFullDescription ? (
