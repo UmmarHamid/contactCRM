@@ -38,7 +38,6 @@ const SearchPage = ({ searchResults }: any) => {
 export default SearchPage;
 
 export async function getServerSideProps({ params }: any) {
-  console.log(params);
   const { searchKey } = params;
   const { data: poets } = await supabase.from('poets').select();
   const { data: books } = await supabase.from('book_list').select();
