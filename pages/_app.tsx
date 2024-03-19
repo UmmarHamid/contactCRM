@@ -62,11 +62,31 @@ export default function App({ Component, pageProps }: AppProps) {
       icon: FaPhone,
     },
   ];
+  const mobileNavItems = [
+    {
+      id: '0',
+      title: 'Poets',
+      href: '/poets',
+      icon: FaUserSecret,
+    },
+    {
+      id: '1',
+      title: 'Home',
+      href: '/',
+      icon: FaHome,
+    },
+    {
+      id: '2',
+      title: 'Books',
+      href: '/books',
+      icon: FaBook,
+    },
+  ];
   return (
     <div className={rootClasses}>
       <div className="navbarr fixed top-0 left-0 z-10 mobile:w-full ">
         <Navbar navItems={navItems} />
-        <MobileNav navItems={navItems} />
+        <MobileNav navItems={mobileNavItems} />
       </div>
 
       <Component {...pageProps} />

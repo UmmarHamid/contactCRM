@@ -27,7 +27,7 @@ export default function Poets({ poets }: any) {
                 <Link
                   key={poet.id}
                   href={`/poets/${poet.id}`}
-                  className="flex justify-center items-center border-2 border-black-800 bg-white shadow-[8.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-2xl p-1 hover:scale-[110%] "
+                  className="flex justify-center items-center border-2 border-black-800 bg-white shadow-[8.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-2xl p-1 hover:scale-[110%]  "
                 >
                   <Card
                     variant="poet"
